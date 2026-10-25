@@ -22,7 +22,7 @@ import { LibraryModal } from './components/LibraryModal';
 import { PWAInstallButton } from './components/PWAInstallButton';
 import { OfflineIndicator } from './components/OfflineIndicator';
 import { ttv, TTVConfig, DEFAULT_TTV_CONFIG } from './utils/ttvEngine';
-import { playClockTick, playMinuteChime, playDialClick } from './utils/audioSynth';
+import { playClockTick, playMinuteChime, playDialClick, unlockAudio } from './utils/audioSynth';
 
 export default function App() {
   // Clock state
@@ -37,8 +37,12 @@ export default function App() {
     return (localStorage.getItem('litclock_theme') as ClockTheme) || 'parchment';
   });
   const [timeFormat, setTimeFormat] = useState<TimeFormat>('12h');
-  const [soundEnabled, setSoundEnabled] = useState<boolean>(false);
-  const [chimeEnabled, setChimeEnabled] = useState<boolean>(false);
+  const [soundEnabled, setSoundEnabled] = useState<boolean>(() => {
+    return localStorage.getItem('litclock_sound') === 'true';
+  });
+  const [chimeEnabled, setChimeEnabled] = useState<boolean>(() => {
+    return localStorage.getItem('litclock_chime') === 'true';
+  });
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
 
   // TTV Configuration
@@ -78,6 +82,14 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('litclock_bookmarks', JSON.stringify(bookmarks));
   }, [bookmarks]);
+
+  useEffect(() => {
+    localStorage.setItem('litclock_sound', String(soundEnabled));
+  }, [soundEnabled]);
+
+  useEffect(() => {
+    localStorage.setItem('litclock_chime', String(chimeEnabled));
+  }, [chimeEnabled]);
 
   // Clock Ticking Loop
   useEffect(() => {
@@ -183,6 +195,24 @@ export default function App() {
     } else {
       document.exitFullscreen().catch(() => {});
       setIsFullscreen(false);
+    }
+  };
+
+  const handleToggleSound = () => {
+    unlockAudio();
+    const next = !soundEnabled;
+    setSoundEnabled(next);
+    if (next) {
+      playClockTick(false);
+    }
+  };
+
+  const handleToggleChime = () => {
+    unlockAudio();
+    const next = !chimeEnabled;
+    setChimeEnabled(next);
+    if (next) {
+      playMinuteChime();
     }
   };
 
@@ -374,32 +404,32 @@ export default function App() {
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
               {/* Sound Tick Toggle */}
               <button
-                onClick={() => setSoundEnabled(!soundEnabled)}
+                onClick={handleToggleSound}
                 title={soundEnabled ? 'Disable Mechanical Ticking' : 'Enable Mechanical Ticking Sound'}
                 aria-label="Toggle mechanical tick"
                 className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border text-xs font-serif transition-colors cursor-pointer ${
                   soundEnabled
-                    ? 'border-[#d4af37] bg-[#3a200a] text-[#ffd978]'
+                    ? 'border-[#d4af37] bg-[#3a200a] text-[#ffd978] shadow-sm'
                     : 'border-[#4a2b10] bg-[#1a0e05] text-[#937552]'
                 }`}
               >
                 {soundEnabled ? <Volume2 className="w-3.5 h-3.5 text-[#e5be62]" /> : <VolumeX className="w-3.5 h-3.5" />}
-                <span>Tick Sound</span>
+                <span>Tick: {soundEnabled ? 'ON' : 'OFF'}</span>
               </button>
 
               {/* Chime Toggle */}
               <button
-                onClick={() => setChimeEnabled(!chimeEnabled)}
+                onClick={handleToggleChime}
                 title={chimeEnabled ? 'Disable Minute Chime' : 'Enable Minute Chime'}
                 aria-label="Toggle chime"
                 className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border text-xs font-serif transition-colors cursor-pointer ${
                   chimeEnabled
-                    ? 'border-[#d4af37] bg-[#3a200a] text-[#ffd978]'
+                    ? 'border-[#d4af37] bg-[#3a200a] text-[#ffd978] shadow-sm'
                     : 'border-[#4a2b10] bg-[#1a0e05] text-[#937552]'
                 }`}
               >
                 {chimeEnabled ? <Bell className="w-3.5 h-3.5 text-[#e5be62]" /> : <BellOff className="w-3.5 h-3.5" />}
-                <span>Chime</span>
+                <span>Chime: {chimeEnabled ? 'ON' : 'OFF'}</span>
               </button>
 
               {/* 12h / 24h Toggle */}
