@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Solid Oak Wood Outer Ring -->
+    <radialGradient id="oakWood" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
+      <stop offset="0%" stop-color="#4d2c16"/>
+      <stop offset="60%" stop-color="#341b09"/>
+      <stop offset="100%" stop-color="#1f0f04"/>
+    </radialGradient>
+    
+    <!-- Polished Brass Bezel -->
+    <linearGradient id="brassBezel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdf3b0"/>
+      <stop offset="25%" stop-color="#d4af37"/>
+      <stop offset="50%" stop-color="#aa7c11"/>
+      <stop offset="75%" stop-color="#dfbc4c"/>
+      <stop offset="100%" stop-color="#7a5506"/>
+    </linearGradient>
+
+    <!-- Antique Parchment Dial -->
+    <radialGradient id="parchment" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#fdfbf7"/>
+      <stop offset="70%" stop-color="#f4eee1"/>
+      <stop offset="100%" stop-color="#e3d6be"/>
+    </radialGradient>
+
+    <!-- Deep Drop Shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    <filter id="innerGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff"/>
+      <feFlood flood-color="#000000" flood-opacity="0.25"/>
+      <feComposite in2="shadowDiff" operator="in"/>
+      <feComposite in2="SourceGraphic" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Solid Oak Frame Body -->
+  <rect x="24" y="24" width="464" height="464" rx="48" fill="url(#oakWood)" filter="url(#shadow)" stroke="#1a0b02" stroke-width="6"/>
+
+  <!-- Beveled Oak Inner Trim -->
+  <rect x="44" y="44" width="424" height="424" rx="36" fill="none" stroke="#6b3e1f" stroke-width="3" opacity="0.7"/>
+
+  <!-- Brass Corner Cornerplates with Rivets -->
+  <!-- Top Left -->
+  <path d="M 44 80 L 80 44 L 110 44 L 44 110 Z" fill="url(#brassBezel)" opacity="0.9"/>
+  <circle cx="68" cy="68" r="4" fill="#583c07"/>
+  <!-- Top Right -->
+  <path d="M 468 80 L 432 44 L 402 44 L 468 110 Z" fill="url(#brassBezel)" opacity="0.9"/>
+  <circle cx="444" cy="68" r="4" fill="#583c07"/>
+  <!-- Bottom Left -->
+  <path d="M 44 432 L 80 468 L 110 468 L 44 402 Z" fill="url(#brassBezel)" opacity="0.9"/>
+  <circle cx="68" cy="444" r="4" fill="#583c07"/>
+  <!-- Bottom Right -->
+  <path d="M 468 432 L 432 468 L 402 468 L 468 402 Z" fill="url(#brassBezel)" opacity="0.9"/>
+  <circle cx="444" cy="444" r="4" fill="#583c07"/>
+
+  <!-- Polished Brass Clock Rim -->
+  <circle cx="256" cy="256" r="186" fill="url(#brassBezel)" stroke="#583b05" stroke-width="4"/>
+  <circle cx="256" cy="256" r="172" fill="#2d1c08" stroke="#f6da7a" stroke-width="2"/>
+
+  <!-- Parchment Dial -->
+  <circle cx="256" cy="256" r="166" fill="url(#parchment)"/>
+
+  <!-- Open Book Silhouette Graphic Behind Center -->
+  <path d="M 170 300 C 205 292, 235 298, 256 312 C 277 298, 307 292, 342 300 C 342 245, 307 240, 256 250 C 205 240, 170 245, 170 300 Z" fill="#886842" opacity="0.22"/>
+
+  <!-- Roman Numerals Clock Face Markings -->
+  <g fill="#2c1a0e" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" text-anchor="middle" font-size="28">
+    <text x="256" y="132">XII</text>
+    <text x="382" y="266">III</text>
+    <text x="256" y="396">VI</text>
+    <text x="130" y="266">IX</text>
+  </g>
+
+  <!-- Delicate Minute Ticks -->
+  <circle cx="256" cy="256" r="150" fill="none" stroke="#7a552b" stroke-width="2" stroke-dasharray="3,12.7" opacity="0.6"/>
+
+  <!-- Literary Quill / Clock Hands -->
+  <!-- Hour Hand: Antique Spade Hand -->
+  <g transform="rotate(305 256 256)">
+    <path d="M 254 260 L 254 185 L 250 178 L 256 160 L 262 178 L 258 185 L 258 260 Z" fill="#1b120c"/>
+    <circle cx="256" cy="180" r="7" fill="none" stroke="#1b120c" stroke-width="2"/>
+  </g>
+
+  <!-- Minute Hand: Elegant Feathered Quill / Breguet Hand pointing to 10 past -->
+  <g transform="rotate(62 256 256)">
+    <path d="M 254.5 264 L 254.5 140 L 249 130 L 256 105 L 263 130 L 257.5 140 L 257.5 264 Z" fill="#2c1507"/>
+    <circle cx="256" cy="133" r="8" fill="none" stroke="#2c1507" stroke-width="2.5"/>
+  </g>
+
+  <!-- Center Brass Cap -->
+  <circle cx="256" cy="256" r="13" fill="url(#brassBezel)" stroke="#452a04" stroke-width="2"/>
+  <circle cx="256" cy="256" r="4" fill="#1a0c02"/>
+
+  <!-- Subtle Quote Banner Typography -->
+  <text x="256" y="210" fill="#6a4c28" font-family="Georgia, serif" font-style="italic" font-size="12" text-anchor="middle" letter-spacing="3">TEMPUS LEGIT</text>
+</svg>

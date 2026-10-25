@@ -1,0 +1,6 @@
+{
+  "name": "Literary Clock — Time in Classic Literature",
+  "description": "Tell the time through literary quotes with hand-picked passages from public domain books for every minute of the day, featuring a solid oak frame, brass dial controls, and text-to-voice narration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
