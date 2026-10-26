@@ -5,6 +5,7 @@ An experiment in giving AI better instructions and better data.
 The idea: tell the time through literature, with a different passage from a real book for every minute of the day. I built the first version in Google AI Studio to see how far a single, simple prompt would get me, then opened up the files to understand what I actually had. This repo is the record of that experiment and what I took from it.
 
 View the original app in AI Studio: https://ai.studio/apps/48ecf506-5bd4-4ae1-b300-ddd8d9f9c917
+Or the Github Pages version here: https://vincentkovar.github.io/Literary-Clock/
 
 ## Why Bother
 
