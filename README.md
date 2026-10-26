@@ -6,6 +6,12 @@ The idea: tell the time through literature, with a different passage from a real
 
 View the original app in AI Studio: https://ai.studio/apps/48ecf506-5bd4-4ae1-b300-ddd8d9f9c917
 
+## Why Bother
+
+While this may seem like a relatively frivolous creation, the deeper purpose is to test various workflow templates using data without real-world consequences. I may look foolish producing false quotes from famous novels but the impact is virtually nill compared to producing acccurate-looking data in fintech, medicine, edtech, law, or cybersecurity. 
+
+Key takeaway: Literary Clock is functioning _as designed_. The core issue was (my) poor design.
+
 ## What the app actually contains
 
 Reading the source showed two kinds of text behind the clock:
@@ -15,7 +21,7 @@ Reading the source showed two kinds of text behind the clock:
 
 With 72 curated entries and 1,440 minutes in a day, at least 1,368 minutes can only show template text. So most of what the clock displays is new prose written in the manner of a classic author, not a passage from the book named underneath it.
 
-A concrete example: "At three:52, Mrs. Hall heard a sudden commotion in the parlor. The stranger had left his door ajar..." is a template that echoes *The Invisible Man*. It is not a line from the novel. The odd "three:52" format comes from how the code joins an hour word to the minutes.
+A concrete example: "At three:52, Mrs. Hall heard a sudden commotion in the parlor. The stranger had left his door ajar..." is a template that echoes *The Invisible Man*. It is not a line from the novel. The odd "three:52" format comes from how the code joins an hour word to the minutes and (probably) from contextual memory where my preference for AP style leaked into an unrelated project.
 
 I have not verified the 72 curated passages individually. Treat them as unchecked.
 
@@ -62,6 +68,7 @@ If I come back to this, the plan would be:
 - Allow blank minutes instead of filling every slot.
 - Keep a source and a verification status for each quote.
 - Rewrite the on-screen text to match what the app does.
+- Since the foundational purpose was not education but entertainment, I see how this framework could be applied to uses which are explicitly labelled, "for entertainment purposed only." 
 
 ## Running locally
 
