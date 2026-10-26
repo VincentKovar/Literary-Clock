@@ -69,7 +69,19 @@ If I come back to this, the plan would be:
 - Allow blank minutes instead of filling every slot.
 - Keep a source and a verification status for each quote.
 - Rewrite the on-screen text to match what the app does.
-- Since the foundational purpose was not education but entertainment, I see how this framework could be applied to uses which are explicitly labelled, "for entertainment purposed only." 
+- Since the foundational purpose was not education but entertainment, I see how this framework could be applied to uses which are explicitly labelled, "for entertainment purposed only."
+
+## Subsequent project
+
+The Fortean Calendar: https://vincentkovar.github.io/fortean-calendar/
+
+Data can be strange. So, I decided to make a project that intentionally uses data which isn't easily determined as "true" at first glance ergo, the Fortean Calendar. 
+
+FYI- Charles Hoy Fort (August 6, 1874 – May 3, 1932) was an American writer and researcher who specialized in anomalous phenomena. The terms "Fortean" and "Forteana" are sometimes used to characterize various such phenomena. I also added more recent UFO and "Bigfoot" sightings. 
+
+This leads us to a topic that I used to teach in Universities: just because something is citable, doesn't mean it is true.  A citation tells you where a claim came from. It doesn't tell you whether the claim holds up. Researchers call one version of this the "Woozle effect," or "evidence by citation": a source is cited again and again for a claim it doesn't actually support, until the repetition itself starts to look like proof. The name comes from Winnie-the-Pooh, where Pooh and Piglet follow tracks in the snow that turn out to be their own.
+
+AI adds a faster loop. Text a model generates can be published, then cited, then collected as training data for the next model. Researchers have studied the extreme case and call it model collapse. That is why the habit from this project matters: trace a claim back to a source that can be thoroughly checked, and then ask whether that source ever supported it.
 
 ## Running locally
 
